@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>RPI LED Control</h1>
+    <form action="/" method="post">
+        <button name="action" value="on" type="submit" class="btn on">On</button>
+        <button name="action" value="off" type="submit" class="btn off">Off</button>
+    </form>
+    
+    <div class="status">
+        Aktueller Status: {{ led_status }}
+    </div>
+
+    {% if timestamp %}
+    <div class="timestamp">
+        Letzte Änderung: {{ timestamp }}
+    </div>
+    {% else %}
+    <div class="timestamp">
+        Keine Änderung durchgeführt.
+    </div>
+    {% endif %}
+</body>
+</html>
